@@ -15,6 +15,13 @@ class DishDetail extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    console.log('Dishdetail Component componentDidMount invoked');
+  }
+  componentDidUpdate() {
+    console.log('Dishdetail Component componentDidUpdate invoked');
+  }
+
   renderDish(dish) {
     if (dish) {
       return (
@@ -38,9 +45,9 @@ class DishDetail extends Component {
       return (
         <div className="col-12 col-md-5 m-1">
           <h4>Comments</h4>
-          {array.map((comment) => {
-            return (
-              <ul className="list-unstyled">
+          <ul className="list-unstyled">
+            {array.map((comment) => {
+              return (
                 <li key={comment.id}>
                   <p>{comment.comment}</p>
                   <p>
@@ -52,9 +59,9 @@ class DishDetail extends Component {
                     }).format(new Date(Date.parse(comment.date)))}
                   </p>
                 </li>
-              </ul>
-            );
-          })}
+              );
+            })}
+          </ul>
         </div>
       );
     } else {
@@ -63,6 +70,7 @@ class DishDetail extends Component {
   }
 
   render() {
+    console.log('Dishdetail Component render invoked');
     let dish;
     if (this.props.selectedDish) {
       dish = (

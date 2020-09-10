@@ -11,10 +11,16 @@ import {
 class Menu extends Component {
   constructor(props) {
     super(props);
+    console.log('Menu Component constructor invoked');
+  }
+
+  componentDidMount() {
+    console.log('Menu Component componentDidMount invoked');
   }
 
   render() {
     const menu = this.props.dishes.map((dish) => {
+      // console.log(`Rendering menu item id: ${dish.id}`);
       return (
         <div key={dish.id} className="col-12 col-md-5 m-1">
           {/* <Card onClick={this.onDishSelect.bind(this, dish)}> */}
@@ -29,6 +35,8 @@ class Menu extends Component {
         </div>
       );
     });
+
+    console.log('Menu Component render is invoked!')
 
     return (
       <div className="container">
