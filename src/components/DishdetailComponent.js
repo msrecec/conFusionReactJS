@@ -18,15 +18,17 @@ class DishDetail extends Component {
   renderDish(dish) {
     if (dish) {
       return (
-        <Card className="col-12 col-md-5 m-1">
-          <CardImg width="100%" src={dish.image} alt={dish.name} />
-          <CardBody>
-            <CardTitle>
-              <strong>{dish.name}</strong>
-            </CardTitle>
-            <CardText>{dish.description}</CardText>
-          </CardBody>
-        </Card>
+        <div className="col-12 col-md-5 m-1">
+          <Card>
+            <CardImg width="100%" src={dish.image} alt={dish.name} />
+            <CardBody>
+              <CardTitle>
+                <strong>{dish.name}</strong>
+              </CardTitle>
+              <CardText>{dish.description}</CardText>
+            </CardBody>
+          </Card>
+        </div>
       );
     }
   }
