@@ -57,12 +57,12 @@ function RenderComments({ comments }) {
 }
 
 const DishDetail = (props) => {
-  if (props.selectedDish) {
+  if (props.dish) {
     return (
       <div className="container">
         <div className="row">
-          <RenderDish dish={props.selectedDish} />
-          <RenderComments comments={props.selectedDish.comments} />
+          <RenderDish dish={props.dish} />
+          <RenderComments comments={props.dish.comments} />
         </div>
       </div>
     );
