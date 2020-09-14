@@ -4,6 +4,9 @@
     "Ristorante",
     "aboutus",
     "contactus",
-    "lipsmacking"
+    "firstname",
+    "lastname",
+    "lipsmacking",
+    "telnum"
   ]
 }
