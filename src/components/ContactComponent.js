@@ -8,7 +8,7 @@ import {
   Row,
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { Control, LocalForm, Errors } from 'react-redux-form';
+import { Control, Form, Errors, actions } from 'react-redux-form';
 
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !val || val.length <= len;
@@ -27,6 +27,7 @@ class Contact extends Component {
   handleSubmit(values) {
     console.log(`Current State is: ${JSON.stringify(values)}`);
     alert(`Current State is: ${JSON.stringify(values)}`);
+    this.props.resetFeedbackForm()
   }
 
   render() {
@@ -95,7 +96,7 @@ class Contact extends Component {
             <h3>Send us Your Feedback</h3>
           </div>
           <div className="col-12 col-md-9">
-            <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
+            <Form model="feedback" onSubmit={(values) => this.handleSubmit(values)}>
               <Row className="form-group">
                 <Label htmlFor="firstname" md={2}>
                   First Name
@@ -180,7 +181,7 @@ class Contact extends Component {
                       required: 'Required',
                       minLength: 'Must be greater than 2 numbers',
                       maxLength: 'Must be 15 numbers or less',
-                      isNumber: 'Must be a number'
+                      isNumber: 'Must be a number',
                     }}
                   />
                 </Col>
@@ -198,7 +199,7 @@ class Contact extends Component {
                     className="form-control"
                     validators={{
                       required,
-                      validEmail
+                      validEmail,
                     }}
                   />
                   <Errors
@@ -207,7 +208,7 @@ class Contact extends Component {
                     show="touched"
                     messages={{
                       required: 'Required',
-                      validEmail: 'Invalid Email Address'
+                      validEmail: 'Invalid Email Address',
                     }}
                   />
                 </Col>
@@ -257,7 +258,7 @@ class Contact extends Component {
                   </Button>
                 </Col>
               </Row>
-            </LocalForm>
+            </Form>
           </div>
         </div>
       </div>
