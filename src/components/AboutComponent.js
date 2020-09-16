@@ -9,6 +9,7 @@ import {
 } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import DishDetail from './DishdetailComponent';
+import { baseUrl } from '../shared/baseUrl';
 
 function RenderLeader(leader) {
   if (leader != null) {
@@ -16,12 +17,16 @@ function RenderLeader(leader) {
       <div key={leader.id} className="col-12 mt-5">
         <Media tag="li">
           <Media left middle>
-            <Media object src={leader.image} alt={leader.name} />
+            <Media object src={baseUrl + leader.image} alt={leader.name} />
           </Media>
           <Media body className="ml-5">
             <Media heading>{leader.name}</Media>
-            <Media><h6>{leader.designation}</h6></Media>
-            <Media><p>{leader.description}</p></Media>
+            <Media>
+              <h6>{leader.designation}</h6>
+            </Media>
+            <Media>
+              <p>{leader.description}</p>
+            </Media>
           </Media>
         </Media>
       </div>
@@ -32,7 +37,7 @@ function RenderLeader(leader) {
 }
 
 function About(props) {
-  const leaders = props.leaders.map((leader) => {
+  const leaders = props.leaders.leaders.map((leader) => {
     return RenderLeader(leader);
   });
 

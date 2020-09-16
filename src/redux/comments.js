@@ -14,7 +14,6 @@ export const Comments = (state = { errMess: null, comments: [] }, action) => {
         ...state,
         isLoading: false,
         errMess: action.payload,
-        comments: [],
       };
 
     case ActionTypes.ADD_COMMENT:
